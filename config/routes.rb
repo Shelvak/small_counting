@@ -1,4 +1,6 @@
-X0Y0::Application.routes.draw do
+SmallCounting::Application.routes.draw do
+  resources :flows
+
   devise_for :users
   
   resources :users do
@@ -8,5 +10,5 @@ X0Y0::Application.routes.draw do
     end
   end
   
-  root to: 'users#index'
+  root to: 'flows#index'
 end

@@ -1,5 +1,5 @@
 'es':
-  app_name: 'X0Y0'
+  app_name: 'SmallCounting'
   
   attributes:
     created_at: 'Creación'
@@ -7,11 +7,22 @@
     
   activerecord:
     models:
+      flow:
+        one: 'Movimiento'
+        other: 'Movimientos'
       user:
         one: 'Usuario'
         other: 'Usuarios'
       
     attributes:
+      flow:
+        description: 'Descripción'
+        amount: 'Cantidad'
+        earn: 'Ganado?'
+      flows_count:
+        in: 'Entrada'
+        out: 'Salida'
+        total: 'Cuenta total'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -42,6 +53,7 @@
   menu:
     actions:
       logout: 'Salir de la aplicación'
+    flows: 'Movimientos'
     users: 'Usuarios'
     
   messages:
@@ -54,6 +66,23 @@
       empty_search:
         title:
           html: 'La búsqueda de <span class="label label-inverse">%{search}</span> no obtuvo ningún resultado.'
+    flows:
+      index_title: 'Listado de movimientos'
+      show_title: 'Detalle de movimiento'
+      new_title: 'Nuevo movimiento'
+      edit_title: 'Modificar movimiento'
+      correctly_created: 'Movimiento agregado correctamente.'
+      correctly_updated: 'Movimiento actualizado correctamente.'
+      stale_object_error: 'El movimiento no pudo ser actualizado, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ningún movimiento hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo Movimiento</span>'
+      new: 'Nuevo Movimiento'
+      edit: 'Modificar Movimiento'
+      earn:
+        earned: 'Ganado'
+        missed: 'Perdido'
+      total_title: 'Cuentas totales'
+      movements_title: 'Movimientos'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

@@ -1,0 +1,17 @@
+<h2><%= t('view.flows.total_title') %></h2>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><%= FlowsCount.human_attribute_name 'out' %></th>
+      <th><%= FlowsCount.human_attribute_name 'in' %></th>
+      <th><%= FlowsCount.human_attribute_name 'total' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= number_to_currency @flows_count.out %></td>
+      <td><%= number_to_currency @flows_count.in %></td>
+      <td><%= number_to_currency @flows_count.total %></td>
+    </tr>
+  </tbody>
+</table>

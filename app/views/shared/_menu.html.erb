@@ -10,9 +10,16 @@
       <% if user_signed_in? %>
         <div class="nav-collapse">
           <ul class="nav">
-            <%= show_menu_link(
-              name: 'users', controllers: 'users', path: users_path
-            ) if can?(:read, User) %>
+            <li>
+              <%= show_menu_link(
+                name: 'users', controllers: 'users', path: users_path
+              ) if can?(:read, User) %>
+            </li>
+            <li>
+              <%= show_menu_link(
+                name: 'flows', controllers: 'flows', path: flows_path
+              ) if can?(:read, Flow) %>
+            </li>
           </ul>
           <%= render partial: 'shared/nav_search' %>
           <ul class="nav pull-right">

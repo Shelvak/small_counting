@@ -1,0 +1,21 @@
+<div class="readonly-data">
+  <h2><%= @flow %></h2>
+
+  <p>
+    <strong><%= Flow.human_attribute_name 'description' %></strong>:
+    <%= @flow.description %>
+  </p>
+  <p>
+    <strong><%= Flow.human_attribute_name 'amount' %></strong>:
+    <%= number_to_currency @flow.amount %>
+  </p>
+  <p>
+    <strong><%= Flow.human_attribute_name 'earn' %></strong>:
+    <%= @flow.earn ? t('view.flows.earn.earned') : t('view.flows.earn.missed') %>
+  </p>
+  
+</div>
+<div class="form-actions">
+  <%= link_to t('label.edit'), edit_flow_path(@flow) if can? :update, @flow %> |
+  <%= link_to t('label.list'), flows_path %>
+</div>

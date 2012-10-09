@@ -1,0 +1,21 @@
+<% if @flows.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <div class="row-fluid">
+    <%= render partial: 'flows_count' %>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <%= render partial: 'movements' %>
+    </div>
+  </div>
+
+  <%= pagination_links(@flows) %>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to(
+    t('view.flows.new', default: :'label.new'),
+    new_flow_path, class: 'btn btn-primary'
+  ) if can? :create, Flow %>
+</div>

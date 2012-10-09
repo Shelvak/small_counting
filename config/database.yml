@@ -15,10 +15,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: x0y0_development
+  database: small_counting_development
   pool: 5
-  username: x0y0
-  password: x0y0
+  username: small_counting
+  password: small_counting
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: x0y0_test
+  database: small_counting_test
   pool: 5
-  username: <%= ENV['TRAVIS'] ? 'postgres' : 'x0y0' %>
-  password: <%= ENV['TRAVIS'] ? '' : 'x0y0' %>
+  username: <%= ENV['TRAVIS'] ? 'postgres' : 'small_counting' %>
+  password: <%= ENV['TRAVIS'] ? '' : 'small_counting' %>
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: x0y0_production
+  database: small_counting_production
   pool: 5
-  username: x0y0
-  password: x0y0
+  username: small_counting
+  password: small_counting
