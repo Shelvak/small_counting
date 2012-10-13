@@ -37,7 +37,7 @@ class FlowsControllerTest < ActionController::TestCase
       end
     end
 
-    assert_redirected_to flow_url(assigns(:flow))
+    assert_redirected_to flows_url
   end
 
   test "should show flow" do

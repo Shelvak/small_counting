@@ -13,7 +13,6 @@ class FlowsController < ApplicationController
     ).filtered_list(params[:q]).page(params[:page])
 
     @flows_count = FlowsCount.first
-    p @flows_count
 
     respond_to do |format|
       format.html # index.html.erb
@@ -59,7 +58,7 @@ class FlowsController < ApplicationController
 
     respond_to do |format|
       if @flow.save
-        format.html { redirect_to @flow, notice: t('view.flows.correctly_created') }
+        format.html { redirect_to flows_path, notice: t('view.flows.correctly_created') }
         format.json { render json: @flow, status: :created, location: @flow }
       else
         format.html { render action: 'new' }
