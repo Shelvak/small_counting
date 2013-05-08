@@ -1,16 +1,18 @@
 <% if @flows.empty? %>
   <%= render 'shared/empty_index' %>
 <% else %>
-  <div class="row-fluid">
-    <%= render partial: 'flows_count' %>
-  </div>
-  <div class="row">
-    <div class="span12">
-      <%= render partial: 'movements' %>
+  <div class="readonly-data">
+    <div class="row-fluid">
+      <%= render partial: 'flows_count' %>
     </div>
-  </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= render partial: 'movements' %>
+      </div>
+    </div>
 
-  <%= pagination_links(@flows) %>
+    <%= pagination_links(@flows) %>
+  </div>
 <% end %>
 
 <div class="form-actions">

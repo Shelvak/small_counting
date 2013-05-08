@@ -5,18 +5,20 @@
       <th><%= Flow.human_attribute_name 'description' %></th>
       <th><%= Flow.human_attribute_name 'amount' %></th>
       <th><%= Flow.human_attribute_name 'earn' %></th>
+      <th><%= t 'attributes.created_at' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @flows.each do |flow| %>
-      <tr>
+      <tr class="<%= flow.earn ? 'success' : 'error' %>">
         <td><%= flow.description %></td>
         <td><%= number_to_currency flow.amount %></td>
         <td><%= flow.earn ? 
           t('view.flows.earn.earned') :
           t('view.flows.earn.missed') %></td>
+        <td><%= l flow.created_at.to_date, format: :long %></td>
         <td><%= link_to_show flow %></td>
         <td>
           <%= link_to_edit edit_flow_path(flow) if can? :update, flow %>
