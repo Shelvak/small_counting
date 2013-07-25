@@ -60,6 +60,7 @@
       default: "%A, %d de %B de %Y %H:%M:%S %z"
       short: "%d de %b %H:%M"
       long: "%d de %B de %Y %H:%M"
+      minimal: '%d/%m/%Y %H:%M'
     am: "am"
     pm: "pm"
 
@@ -184,7 +185,7 @@
       inclusion: "no está incluido en la lista"
       exclusion: "está reservado"
       invalid: "no es válido"
-      confirmation: "no coincide con la confirmación"
+      confirmation: "no coincide"
       accepted: "debe ser aceptado"
       empty: "no puede estar vacío"
       blank: "no puede estar en blanco"

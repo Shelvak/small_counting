@@ -1,16 +1,14 @@
 class Flow < ActiveRecord::Base
   has_paper_trail
 
-  attr_accessible :description, :amount, :earn
-
   validates :description, :amount, presence: true
   validates :amount, numericality: { greater_than: 0 }
   validates :earn, inclusion: { in: [true, false] }
 
   after_save :sum_to_flows_count
 
-  def initialize(attributes = nil, options = {})
-    super(attributes, options)
+  def initialize(attributes = {})
+    super
 
     self.earn ||= false
   end

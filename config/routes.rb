@@ -6,7 +6,7 @@ SmallCounting::Application.routes.draw do
   resources :users do
     member do
       get :edit_profile
-      put :update_profile
+      patch :update_profile
     end
   end
   

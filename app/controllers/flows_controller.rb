@@ -13,11 +13,6 @@ class FlowsController < ApplicationController
     ).filtered_list(params[:q]).page(params[:page])
 
     @flows_count = FlowsCount.first
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @flows }
-    end
   end
 
   # GET /flows/1
@@ -25,11 +20,6 @@ class FlowsController < ApplicationController
   def show
     @title = t('view.flows.show_title')
     @flow = Flow.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @flow }
-    end
   end
 
   # GET /flows/new
@@ -37,11 +27,6 @@ class FlowsController < ApplicationController
   def new
     @title = t('view.flows.new_title')
     @flow = Flow.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @flow }
-    end
   end
 
   # GET /flows/1/edit
@@ -54,7 +39,7 @@ class FlowsController < ApplicationController
   # POST /flows.json
   def create
     @title = t('view.flows.new_title')
-    @flow = Flow.new(params[:flow])
+    @flow = Flow.new(flow_params)
 
     respond_to do |format|
       if @flow.save
@@ -74,7 +59,7 @@ class FlowsController < ApplicationController
     @flow = Flow.find(params[:id])
 
     respond_to do |format|
-      if @flow.update_attributes(params[:flow])
+      if @flow.update_attributes(flow_params)
         format.html { redirect_to @flow, notice: t('view.flows.correctly_updated') }
         format.json { head :ok }
       else
@@ -84,5 +69,11 @@ class FlowsController < ApplicationController
     end
   rescue ActiveRecord::StaleObjectError
     redirect_to edit_flow_url(@flow), alert: t('view.flows.stale_object_error')
+  end
+
+
+  private
+  def flow_params
+    params.require(:flow).permit(:description, :amount, :earn)
   end
 end

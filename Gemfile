@@ -1,36 +1,36 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '4.0.0'
 
 gem 'pg'
-gem 'jquery-rails'
-gem 'pjax_rails'
 gem 'will_paginate'
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.0.rc'
 gem 'devise'
 gem 'cancan'
 gem 'role_model'
-gem 'paper_trail'
+gem 'paper_trail', github: 'airblade/paper_trail', branch: 'rails4'
 gem 'magick_columns'
 gem 'validates_timeliness'
 gem 'sidekiq'
 gem 'capistrano'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+# Old assets group
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'turbolinks'
 
 group :development do
   gem 'thin'
 end
 
 group :test do
-  gem 'turn', require: false
-  gem 'minitest', require: false
+  gem 'turn'
+  gem 'selenium-webdriver', require: false
   gem 'capybara', require: false
-  gem 'database_cleaner' # For Capybara
+  gem 'database_cleaner'
   gem 'fabrication'
   gem 'faker'
 end

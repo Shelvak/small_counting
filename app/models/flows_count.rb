@@ -1,8 +1,6 @@
 class FlowsCount < ActiveRecord::Base
   has_paper_trail
 
-  attr_accessible :out, :in, :total
-
   def sum_to_in(amount)
     self.in += amount
     self.total += amount
