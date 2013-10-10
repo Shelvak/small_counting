@@ -12,7 +12,7 @@ gem 'paper_trail', github: 'airblade/paper_trail', branch: 'rails4'
 gem 'magick_columns'
 gem 'validates_timeliness'
 gem 'sidekiq'
-gem 'capistrano'
+gem 'capistrano', '2.15.5'
 
 # Old assets group
 gem 'sass-rails'
