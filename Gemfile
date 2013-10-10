@@ -4,7 +4,7 @@ gem 'rails', '4.0.0'
 
 gem 'pg'
 gem 'will_paginate'
-gem 'simple_form', '~> 3.0.0.rc'
+gem 'simple_form'
 gem 'devise'
 gem 'cancan'
 gem 'role_model'
