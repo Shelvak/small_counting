@@ -8,17 +8,13 @@ class FlowTest < ActiveSupport::TestCase
 
   test 'create' do
     assert_difference 'Flow.count' do
-      assert_difference 'Version.count', 2 do
-        @flow = Flow.create(Fabricate.attributes_for(:flow))
-      end 
+      @flow = Flow.create(Fabricate.attributes_for(:flow))
     end 
   end
     
   test 'update' do
-    assert_difference 'Version.count' do
-      assert_no_difference 'Flow.count' do
-        assert @flow.update_attributes(description: 'Updated')
-      end
+    assert_no_difference 'Flow.count' do
+      assert @flow.update_attributes(description: 'Updated')
     end
 
     assert_equal 'Updated', @flow.reload.description
@@ -28,10 +24,8 @@ class FlowTest < ActiveSupport::TestCase
     @flow = Fabricate(:flow, amount: 200, earn: true)
     new_flows_count_total = @flows_count.reload.total + 100
 
-    assert_difference 'Version.count', 2 do
-      assert_no_difference 'Flow.count' do
-        assert @flow.update_attributes(amount: 300)
-      end
+    assert_no_difference 'Flow.count' do
+      assert @flow.update_attributes(amount: 300)
     end
 
     assert_equal 300, @flow.reload.amount
@@ -39,9 +33,7 @@ class FlowTest < ActiveSupport::TestCase
   end
     
   test 'destroy' do 
-    assert_difference 'Version.count' do
-      assert_difference('Flow.count', -1) { @flow.destroy }
-    end
+    assert_difference('Flow.count', -1) { @flow.destroy }
   end
     
   test 'validates blank attributes' do

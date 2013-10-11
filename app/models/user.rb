@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   include Users::MagickColumns
   include Users::Roles
   
-  has_paper_trail
-  
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
     :validatable
 

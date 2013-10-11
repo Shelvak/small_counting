@@ -1,5 +1,4 @@
 class Flow < ActiveRecord::Base
-  has_paper_trail
 
   validates :description, :amount, presence: true
   validates :amount, numericality: { greater_than: 0 }

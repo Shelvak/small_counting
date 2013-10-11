@@ -32,9 +32,7 @@ class FlowsControllerTest < ActionController::TestCase
     sign_in @user
 
     assert_difference 'Flow.count' do
-      assert_difference 'Version.count', 2 do
-        post :create, flow: Fabricate.attributes_for(:flow)
-      end
+      post :create, flow: Fabricate.attributes_for(:flow)
     end
 
     assert_redirected_to flows_url
@@ -62,10 +60,8 @@ class FlowsControllerTest < ActionController::TestCase
 
   test "should update flow" do
     sign_in @user
-    assert_difference 'Version.count', 2 do
-      put :update, id: @flow, 
-        flow: Fabricate.attributes_for(:flow, description: 'updated')
-      assert_redirected_to flow_url(assigns(:flow))
-    end
+    put :update, id: @flow, 
+      flow: Fabricate.attributes_for(:flow, description: 'updated')
+    assert_redirected_to flow_url(assigns(:flow))
   end
 end
